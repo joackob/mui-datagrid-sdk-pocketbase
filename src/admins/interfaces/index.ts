@@ -2,6 +2,7 @@ export type AdminProps = {
   nombre: string;
   apellido: string;
   email: string;
+  avatar: string;
 };
 
 export type Admin = AdminProps & {

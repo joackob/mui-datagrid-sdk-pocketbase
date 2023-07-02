@@ -9,29 +9,48 @@ import { useAppSelector } from "@/store/hooks";
 import { Alert, LinearProgress } from "@mui/material";
 import { Box } from "@mui/system";
 import { StatusStateAdmins } from "../interfaces";
-
-const columns: GridColDef[] = [
-  {
-    field: "nombre",
-    headerName: "Nombre",
-    editable: true,
-  },
-  {
-    field: "apellido",
-    headerName: "Apellido",
-    editable: true,
-  },
-  {
-    field: "email",
-    headerName: "Correo Electronico",
-    editable: true,
-    minWidth: 200,
-  },
-];
+import Image from "next/image";
 
 const Table = () => {
   const admins = useAppSelector((state) => state.admins.values);
   const status = useAppSelector((state) => state.admins.status);
+
+  const columns: GridColDef[] = [
+    {
+      field: "nombre",
+      headerName: "Nombre",
+      editable: true,
+    },
+    {
+      field: "apellido",
+      headerName: "Apellido",
+      editable: true,
+    },
+    {
+      field: "email",
+      headerName: "Correo Electronico",
+      editable: true,
+      minWidth: 200,
+    },
+    {
+      field: "avatar",
+      headerName: "Avatar",
+      editable: false,
+      renderCell: (params) => (
+        <Box
+          sx={{
+            backgroundImage: `url("${params.value}")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            height: "40px",
+            width: "40px",
+            borderRadius: "50%",
+          }}
+        />
+      ),
+    },
+  ];
 
   const handleEditRow = (params: GridCellEditCommitParams) => {
     console.log(params);

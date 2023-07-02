@@ -17,6 +17,7 @@ export const getAdmins = async (): Promise<Admin[]> => {
     nombre: admin.nombre,
     apellido: admin.apellido,
     email: admin.email,
+    avatar: `${pb.files.getUrl(admin, admin.avatar)}`,
   }));
   return admins;
 };
