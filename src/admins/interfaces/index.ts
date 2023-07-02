@@ -5,8 +5,7 @@ export type AdminProps = {
 };
 
 export type Admin = AdminProps & {
-  id: number;
-  url: string;
+  id: string;
 };
 
 export enum StatusStateAdmins {

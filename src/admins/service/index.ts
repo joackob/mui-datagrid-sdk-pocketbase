@@ -1,17 +1,22 @@
-import axios from "axios";
-import { api } from "./api";
+import { pb } from "./pb";
 import { AdminProps } from "../interfaces";
+import { Admin } from "../interfaces";
 
-export const postAdmin = async (data: AdminProps) => {
-  const res = await axios.post(api.admin, data);
+export const postAdmin = async (data: AdminProps): Promise<Admin> => {
+  const res = await pb.collection("admins").create(data);
   return {
     ...data,
-    id: res.data.id,
-    url: res.data.url,
+    id: res.id,
   };
 };
 
-export const getAdmins = async () => {
-  const res = await axios.get(api.admins);
-  return res.data;
+export const getAdmins = async (): Promise<Admin[]> => {
+  const res = await pb.collection("admins").getFullList();
+  const admins = res.map((admin) => ({
+    id: admin.id,
+    nombre: admin.nombre,
+    apellido: admin.apellido,
+    email: admin.email,
+  }));
+  return admins;
 };
