@@ -7,5 +7,4 @@ const nextConfig = {
   },
 };
 
-const withTM = require("next-transpile-modules")(["pocketbase"]);
-module.exports = withTM(nextConfig);
+module.exports = nextConfig;

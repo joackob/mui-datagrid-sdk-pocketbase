@@ -6,7 +6,6 @@ const createJestConfig = nextJest({
 });
 
 const customJestConfig = {
-  transform: {},
   transformIgnorePatterns: ["/node_modules/"],
   setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
   testEnvironment: "jest-environment-jsdom",

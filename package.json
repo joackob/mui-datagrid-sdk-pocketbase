@@ -18,7 +18,6 @@
     "@mui/x-data-grid": "^5.17.7",
     "@reduxjs/toolkit": "^1.8.6",
     "next": "^12.1.0",
-    "next-transpile-modules": "^10.0.0",
     "pocketbase": "^0.15.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
